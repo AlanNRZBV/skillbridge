@@ -29,6 +29,14 @@ export default {
         "dark-60": "#98989a",
         "dark-70": "#b3b3b3",
       },
+      screens: {
+        xs: "390px",
+      },
+      container: {
+        padding: {
+          DEFAULT: "1rem",
+        },
+      },
     },
   },
 } satisfies Config;
