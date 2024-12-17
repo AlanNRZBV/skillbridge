@@ -10,7 +10,7 @@ const App = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
+      <footer className="bg-white">
         <Footer />
       </footer>
     </>
