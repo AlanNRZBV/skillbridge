@@ -1,8 +1,8 @@
-import Hero from "../components/Hero.tsx";
+import Hero from '../components/Hero.tsx';
 
 const Home = () => {
   return (
-    <div className="border border-red-400 h-full">
+    <div className="h-full">
       <Hero />
     </div>
   );
