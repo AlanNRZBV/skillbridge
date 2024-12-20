@@ -5,8 +5,10 @@ import { Bars3BottomRightIcon } from '@heroicons/react/24/outline';
 
 const Navbar = () => {
   return (
-    <nav className="">
-      <TopBanner />
+    <nav>
+      <div className="container mx-auto lg:max-w-full">
+        <TopBanner />
+      </div>
       <div className="container mx-auto">
         <div className="flex items-center justify-between border-b border-light-95 py-[14px]">
           <NavLink to="/" className="mr-[50px] shrink-0">

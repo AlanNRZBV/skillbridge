@@ -1,48 +1,53 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "./App.tsx";
-import Home from "./pages/Home.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import SignUp from "./pages/SignUp.tsx";
-import Login from "./pages/Login.tsx";
-import AboutUs from "./pages/AboutUs.tsx";
-import Courses from "./pages/Courses.tsx";
-import Pricing from "./pages/Pricing.tsx";
-import Contact from "./pages/Contact.tsx";
+import { createBrowserRouter } from 'react-router-dom';
+import App from './App.tsx';
+import HomePage from './pages/HomePage.tsx';
+import NotFoundPage from './pages/NotFoundPage.tsx';
+import SignUpPage from './pages/SignUpPage.tsx';
+import LoginPage from './pages/LoginPage.tsx';
+import AboutUsPage from './pages/AboutUsPage.tsx';
+import CoursesPage from './pages/CoursesPage.tsx';
+import PricingPage from './pages/PricingPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import Course from './components/Course.tsx';
 
 const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: '/',
       element: <App />,
-      errorElement: <NotFound />,
+      errorElement: <NotFoundPage />,
       children: [
         {
-          path: "/",
-          element: <Home />,
+          path: '/',
+          element: <HomePage />,
         },
         {
-          path: "/sign-up",
-          element: <SignUp />,
+          path: '/sign-up',
+          element: <SignUpPage />,
         },
         {
-          path: "/login",
-          element: <Login />,
+          path: '/login',
+          element: <LoginPage />,
         },
         {
-          path: "/courses",
-          element: <Courses />,
+          path: '/courses',
+          element: <CoursesPage />,
         },
         {
-          path: "/about-us",
-          element: <AboutUs />,
+          path: '/courses/:id',
+          element: <Course />,
         },
         {
-          path: "/pricing",
-          element: <Pricing />,
+          path: '/about-us',
+          element: <AboutUsPage />,
         },
         {
-          path: "/contact",
-          element: <Contact />,
+          path: '/pricing',
+          element: <PricingPage />,
+        },
+        {
+          path: '/contact',
+          element: <ContactPage />,
         },
       ],
     },
