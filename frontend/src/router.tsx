@@ -49,6 +49,10 @@ const router = createBrowserRouter(
           path: '/contact',
           element: <ContactPage />,
         },
+        {
+          path: '*',
+          element: <NotFoundPage />, // Render inside the outlet for unmatched routes
+        },
       ],
     },
   ],

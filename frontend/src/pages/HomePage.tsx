@@ -1,8 +1,14 @@
 import Hero from '../components/Hero.tsx';
 import Section from '../components/Section.tsx';
-import { BENEFITS_CARDS, COURSES_CARDS, Lorem } from '../constants';
+import {
+  BENEFITS_CARDS,
+  COURSES_CARDS,
+  Lorem,
+  TESTIMONIALS_CARDS,
+} from '../constants';
 import BenefitCard from '../components/Cards/BenefitCard.tsx';
 import CourseCard from '../components/Cards/CourseCard.tsx';
+import TestimonialCard from '../components/Cards/TestimonialCard.tsx';
 
 const HomePage = () => {
   return (
@@ -25,6 +31,7 @@ const HomePage = () => {
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           {COURSES_CARDS.map((item) => (
             <CourseCard
+              key={item._id}
               _id={item._id}
               img={item.img}
               title={item.title}
@@ -37,7 +44,17 @@ const HomePage = () => {
         </div>
       </Section>
       <Section title="our testimonials" description={Lorem} link="#">
-        testimonials cards
+        <div className="grid gap-5 md:grid-cols-2">
+          {TESTIMONIALS_CARDS.map((item) => (
+            <TestimonialCard
+              key={item._id}
+              _id={item._id}
+              img={item.img}
+              author={item.author}
+              content={item.content}
+            />
+          ))}
+        </div>
       </Section>
     </div>
   );

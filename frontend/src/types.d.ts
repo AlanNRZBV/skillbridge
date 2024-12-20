@@ -7,3 +7,10 @@ declare interface ICourse {
   length: string;
   author: string;
 }
+
+declare interface ITestimonial {
+  _id: string;
+  img: string;
+  author: string;
+  content: string;
+}
