@@ -7,7 +7,12 @@ const Home = () => {
   return (
     <div className="h-full">
       <Hero />
-      <Section title="benefits" description={Lorem} link="#">
+      <Section
+        title="benefits"
+        description={Lorem}
+        link="#"
+        styles={'lg:grid-cols-3'}
+      >
         {BENEFITS_CARDS.map((item, index) => (
           <BenefitCard
             key={index}
