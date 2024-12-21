@@ -3,11 +3,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import * as mongoose from "mongoose";
 import path from "path";
+import plansRouter from "./routers/plans";
 
 dotenv.config();
 
 const app: Express = express();
 app.use(express.static("public"));
+app.use("/plans", plansRouter);
 app.use(express.json());
 app.use(cors());
 

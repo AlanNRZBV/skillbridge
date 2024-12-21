@@ -21,5 +21,8 @@ declare interface IPlan {
   perYear: number;
   features: Record<FeatureName, IFeatureInfo>;
 }
+declare interface IPlanFromDb extends IPlan {
+  _id: string;
+}
 
 declare type PlanModel = Model<IPlan>;

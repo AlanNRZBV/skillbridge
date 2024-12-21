@@ -9,6 +9,7 @@ import CoursesPage from './pages/CoursesPage.tsx';
 import PricingPage from './pages/PricingPage.tsx';
 import ContactPage from './pages/ContactPage.tsx';
 import Course from './components/Course.tsx';
+import axiosApi from './utils/axiosApi.ts';
 
 const router = createBrowserRouter(
   [
@@ -20,6 +21,15 @@ const router = createBrowserRouter(
         {
           path: '/',
           element: <HomePage />,
+          hydrateFallbackElement: <div>some shit are loading rn</div>,
+          loader: async () => {
+            try {
+              const response = await axiosApi.get<IPricingPlan>('/plans');
+              return response.data;
+            } catch (e) {
+              console.log('=>(router.tsx:29) e', e);
+            }
+          },
         },
         {
           path: '/sign-up',
@@ -51,7 +61,7 @@ const router = createBrowserRouter(
         },
         {
           path: '*',
-          element: <NotFoundPage />, // Render inside the outlet for unmatched routes
+          element: <NotFoundPage />, // Render inside the outlet for unmatched routers
         },
       ],
     },

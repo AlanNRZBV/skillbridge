@@ -10,13 +10,15 @@ import BenefitCard from '../components/Cards/BenefitCard.tsx';
 import CourseCard from '../components/Cards/CourseCard.tsx';
 import TestimonialCard from '../components/Cards/TestimonialCard.tsx';
 import { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const HomePage = () => {
   const [isMonthly, setIsMonthly] = useState<boolean>(true);
+  const pricingPlans = useLoaderData() as IPricingPlan[];
   const pricingPlanChange = () => {
     setIsMonthly((prevState) => !prevState);
   };
-
+  console.log('=>(HomePage.tsx:22) ', pricingPlans);
   return (
     <div className="h-full">
       <Hero />

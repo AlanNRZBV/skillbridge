@@ -16,16 +16,16 @@ declare interface ITestimonial {
 }
 
 declare interface IFeature {
-  _id: string;
-  name: string;
   title: string;
   value: boolean;
 }
 
 declare interface IPricingPlan {
   _id: string;
-  type: 'free' | 'pro';
+  type: 'free' | 'paid';
   perMonth: number;
   perYear: number;
-  features: IFeature[];
+  features: Record<string, IFeature>;
+  createdAt: string;
+  updatedAt: string;
 }
