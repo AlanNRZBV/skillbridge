@@ -234,5 +234,27 @@ export const TESTIMONIALS_CARDS: ITestimonial[] = [
   },
 ];
 
+// export const PRICING_PLANS: IPricingPlan = [
+//   {
+//     _id: '01',
+//     type: 'free',
+//     perMonth: 0,
+//     perYear: 0,
+//     features: [
+//       {
+//         _id: '01',
+//         name: 'accessType',
+//         title: 'Access to selected free courses.',
+//       },
+//     ],
+//   },
+// ];
+
 export const Lorem =
   'Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.';
+
+/*
+ * Типы фич
+ * limited / unlimited как например доступ к какому-либо ресурсу
+ *
+ */

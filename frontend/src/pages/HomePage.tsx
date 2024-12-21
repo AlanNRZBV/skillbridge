@@ -9,8 +9,14 @@ import {
 import BenefitCard from '../components/Cards/BenefitCard.tsx';
 import CourseCard from '../components/Cards/CourseCard.tsx';
 import TestimonialCard from '../components/Cards/TestimonialCard.tsx';
+import { useState } from 'react';
 
 const HomePage = () => {
+  const [isMonthly, setIsMonthly] = useState<boolean>(true);
+  const pricingPlanChange = () => {
+    setIsMonthly((prevState) => !prevState);
+  };
+
   return (
     <div className="h-full">
       <Hero />
@@ -55,6 +61,16 @@ const HomePage = () => {
             />
           ))}
         </div>
+      </Section>
+      <Section
+        title="Our Pricing"
+        description={Lorem}
+        link="#"
+        controls
+        isMonthly={isMonthly}
+        onClick={pricingPlanChange}
+      >
+        <div className="">pricing cards</div>
       </Section>
     </div>
   );

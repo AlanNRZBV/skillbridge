@@ -5,9 +5,22 @@ interface Props extends React.PropsWithChildren {
   title: string;
   description: string;
   link: string;
+  controls?: boolean;
+  onClick?: () => void;
+  isMonthly?: boolean;
 }
 
-const Section: FC<Props> = ({ title, description, link, children }) => {
+const Section: FC<Props> = ({
+  title,
+  description,
+  link,
+  children,
+  controls,
+  onClick,
+  isMonthly,
+}) => {
+  const active = 'rounded-md bg-primary-50 text-white';
+
   return (
     <section
       className={`container mx-auto mb-[3.125em] grid grid-cols-1 gap-y-[1.875em] xl:gap-[3.75em] 2xl:gap-20`}
@@ -21,12 +34,31 @@ const Section: FC<Props> = ({ title, description, link, children }) => {
             {description}
           </span>
         </div>
-        <Link
-          className="self-start text-nowrap rounded-md border border-light-95 bg-light-99 px-5 py-[.875em] sm:self-end lg:px-6 lg:py-[1.125em] lg:text-[1.125rem]"
-          to={link}
-        >
-          View All
-        </Link>
+        {controls ? (
+          <div className="p-3">
+            <button
+              onClick={onClick}
+              className={`px-6 py-3 text-[.875rem] ${isMonthly ? active : ''}`}
+              disabled={isMonthly}
+            >
+              monthly
+            </button>
+            <button
+              onClick={onClick}
+              className={`px-6 py-3 text-[.875rem] ${!isMonthly ? active : ''}`}
+              disabled={!isMonthly}
+            >
+              yearly
+            </button>
+          </div>
+        ) : (
+          <Link
+            className="self-start text-nowrap rounded-md border border-light-95 bg-light-99 px-5 py-[.875em] sm:self-end lg:px-6 lg:py-[1.125em] lg:text-[1.125rem]"
+            to={link}
+          >
+            View All
+          </Link>
+        )}
       </div>
       {children}
     </section>

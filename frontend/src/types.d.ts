@@ -14,3 +14,18 @@ declare interface ITestimonial {
   author: string;
   content: string;
 }
+
+declare interface IFeature {
+  _id: string;
+  name: string;
+  title: string;
+  value: boolean;
+}
+
+declare interface IPricingPlan {
+  _id: string;
+  type: 'free' | 'pro';
+  perMonth: number;
+  perYear: number;
+  features: IFeature[];
+}
