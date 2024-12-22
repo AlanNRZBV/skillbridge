@@ -63,7 +63,7 @@ export const footerLinks = [
         to: '/',
       },
       {
-        title: 'Our CoursesPage',
+        title: 'Our Courses',
         to: '/',
       },
       {

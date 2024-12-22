@@ -23,9 +23,10 @@ declare interface IFeature {
 declare interface IPricingPlan {
   _id: string;
   type: 'free' | 'paid';
+  name: string;
   perMonth: number;
   perYear: number;
   features: Record<string, IFeature>;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 }

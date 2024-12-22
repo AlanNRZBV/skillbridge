@@ -11,14 +11,14 @@ import CourseCard from '../components/Cards/CourseCard.tsx';
 import TestimonialCard from '../components/Cards/TestimonialCard.tsx';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import PricingCard from '../components/Cards/PricingCard.tsx';
 
-const HomePage = () => {
+const Home = () => {
   const [isMonthly, setIsMonthly] = useState<boolean>(true);
-  const pricingPlans = useLoaderData() as IPricingPlan[];
+  const { plans } = useLoaderData();
   const pricingPlanChange = () => {
     setIsMonthly((prevState) => !prevState);
   };
-  console.log('=>(HomePage.tsx:22) ', pricingPlans);
   return (
     <div className="h-full">
       <Hero />
@@ -72,10 +72,23 @@ const HomePage = () => {
         isMonthly={isMonthly}
         onClick={pricingPlanChange}
       >
-        <div className="">pricing cards</div>
+        <div className="flex flex-col gap-y-[30px] rounded-xl bg-white p-5 xl:flex-row xl:gap-x-[30px] xl:p-[3.125em] 2xl:p-20">
+          {plans.map((item: IPricingPlan) => (
+            <PricingCard
+              key={item._id}
+              isMonthly={isMonthly}
+              _id={item._id}
+              type={item.type}
+              name={item.name}
+              perMonth={item.perMonth}
+              perYear={item.perYear}
+              features={item.features}
+            />
+          ))}
+        </div>
       </Section>
     </div>
   );
 };
 
-export default HomePage;
+export default Home;

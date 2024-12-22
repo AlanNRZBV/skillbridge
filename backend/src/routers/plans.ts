@@ -3,11 +3,10 @@ import { Plan } from "../models/Plan";
 
 const plansRouter = express.Router();
 
-plansRouter.get("/", async (req, res, next) => {
+plansRouter.get("/", async (_req, res, next) => {
   try {
-    console.log("=>(plans.ts:9)");
     const plans = await Plan.find();
-    res.json({ message: "k", plans });
+    res.json({ message: "ok", plans });
   } catch (e) {
     next(e);
   }

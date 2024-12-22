@@ -10,7 +10,7 @@ const App = () => {
       <main>
         <Outlet />
       </main>
-      <footer className="bg-white">
+      <footer className="mt-auto bg-white">
         <Footer />
       </footer>
     </>

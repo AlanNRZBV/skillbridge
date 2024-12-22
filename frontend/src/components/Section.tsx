@@ -23,7 +23,7 @@ const Section: FC<Props> = ({
 
   return (
     <section
-      className={`container mx-auto mb-[3.125em] grid grid-cols-1 gap-y-[1.875em] xl:gap-[3.75em] 2xl:gap-20`}
+      className={`container mx-auto mb-[3.125em] grid grid-cols-1 gap-y-[1.875em] lg:gap-[3.75em] 2xl:gap-20`}
     >
       <div className="col-span-full flex flex-col gap-y-5 sm:flex-row sm:gap-x-[150px] sm:gap-y-0 lg:gap-x-[300px]">
         <div className="flex flex-col gap-y-1 lg:gap-y-[.375em]">
@@ -35,17 +35,17 @@ const Section: FC<Props> = ({
           </span>
         </div>
         {controls ? (
-          <div className="p-3">
+          <div className="self-center rounded-lg bg-white p-3 text-[.875rem] font-medium sm:flex sm:self-end xl:text-[1.125rem]">
             <button
               onClick={onClick}
-              className={`px-6 py-3 text-[.875rem] ${isMonthly ? active : ''}`}
+              className={`rounded-md px-6 py-3 capitalize transition duration-200 ease-in-out xl:px-[1.875em] xl:py-[.875em] ${isMonthly ? active : ''}`}
               disabled={isMonthly}
             >
               monthly
             </button>
             <button
               onClick={onClick}
-              className={`px-6 py-3 text-[.875rem] ${!isMonthly ? active : ''}`}
+              className={`rounded-md px-6 py-3 capitalize transition duration-200 ease-in-out xl:px-[1.875em] xl:py-[.875em] ${!isMonthly ? active : ''}`}
               disabled={!isMonthly}
             >
               yearly

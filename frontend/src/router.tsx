@@ -1,47 +1,41 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
-import HomePage from './pages/HomePage.tsx';
-import NotFoundPage from './pages/NotFoundPage.tsx';
-import SignUpPage from './pages/SignUpPage.tsx';
-import LoginPage from './pages/LoginPage.tsx';
-import AboutUsPage from './pages/AboutUsPage.tsx';
-import CoursesPage from './pages/CoursesPage.tsx';
-import PricingPage from './pages/PricingPage.tsx';
-import ContactPage from './pages/ContactPage.tsx';
+import Home from './pages/Home.tsx';
+import NotFound from './pages/NotFound.tsx';
+import SignUp from './pages/SignUp.tsx';
+import Login from './pages/Login.tsx';
+import AboutUs from './pages/AboutUs.tsx';
+import Courses from './pages/Courses.tsx';
+import Pricing from './pages/Pricing.tsx';
+import Contacts from './pages/Contacts.tsx';
 import Course from './components/Course.tsx';
-import axiosApi from './utils/axiosApi.ts';
+import { getPricing } from './utils/loaders.ts';
+import Checkout from './pages/Checkout.tsx';
 
 const router = createBrowserRouter(
   [
     {
       path: '/',
       element: <App />,
-      errorElement: <NotFoundPage />,
+      errorElement: <NotFound />,
       children: [
         {
           path: '/',
-          element: <HomePage />,
+          element: <Home />,
           hydrateFallbackElement: <div>some shit are loading rn</div>,
-          loader: async () => {
-            try {
-              const response = await axiosApi.get<IPricingPlan>('/plans');
-              return response.data;
-            } catch (e) {
-              console.log('=>(router.tsx:29) e', e);
-            }
-          },
+          loader: getPricing,
         },
         {
           path: '/sign-up',
-          element: <SignUpPage />,
+          element: <SignUp />,
         },
         {
           path: '/login',
-          element: <LoginPage />,
+          element: <Login />,
         },
         {
           path: '/courses',
-          element: <CoursesPage />,
+          element: <Courses />,
         },
         {
           path: '/courses/:id',
@@ -49,19 +43,23 @@ const router = createBrowserRouter(
         },
         {
           path: '/about-us',
-          element: <AboutUsPage />,
+          element: <AboutUs />,
         },
         {
           path: '/pricing',
-          element: <PricingPage />,
+          element: <Pricing />,
         },
         {
           path: '/contact',
-          element: <ContactPage />,
+          element: <Contacts />,
+        },
+        {
+          path: '/checkout',
+          element: <Checkout />,
         },
         {
           path: '*',
-          element: <NotFoundPage />, // Render inside the outlet for unmatched routers
+          element: <NotFound />, // Render inside the outlet for unmatched routers
         },
       ],
     },

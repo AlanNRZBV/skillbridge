@@ -76,7 +76,7 @@ const run = async () => {
             value: true,
             title: "Course completion certificates.",
           },
-          adds: { value: false, title: "Ad-free experience." },
+          adds: { value: true, title: "Ad-free experience." },
           exclusiveForumAccess: {
             value: true,
             title: "Access to exclusive Pro Plan community forums.",

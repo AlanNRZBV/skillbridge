@@ -53,11 +53,11 @@ const path_1 = __importDefault(require("path"));
 const plans_1 = __importDefault(require("./routers/plans"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-app.use(express_1.default.static("public"));
-app.use("/plans", plans_1.default);
-app.use(express_1.default.json());
 app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.use(express_1.default.static("public"));
 app.use("/assets", express_1.default.static(path_1.default.join(__dirname, "assets")));
+app.use("/plans", plans_1.default);
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     yield mongoose.connect(process.env.DATABASE_URL);
     app.listen(process.env.PORT, () => {
