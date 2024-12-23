@@ -59,7 +59,7 @@ const Hero = () => {
   }, [isBelowSm, isMdToLg, isAboveLg]);
 
   return (
-    <div className="container mx-auto mb-[3.125em] pt-[3.125em] md:pt-20">
+    <div className="container mx-auto pt-[3.125em] md:pt-20">
       <div className="mb-[50px] flex flex-col items-center gap-y-4">
         <div className="relative flex flex-col">
           <img

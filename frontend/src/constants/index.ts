@@ -234,27 +234,49 @@ export const TESTIMONIALS_CARDS: ITestimonial[] = [
   },
 ];
 
-// export const PRICING_PLANS: IPricingPlan = [
-//   {
-//     _id: '01',
-//     type: 'free',
-//     perMonth: 0,
-//     perYear: 0,
-//     features: [
-//       {
-//         _id: '01',
-//         name: 'accessType',
-//         title: 'Access to selected free courses.',
-//       },
-//     ],
-//   },
-// ];
+export const FAQ: IQuestion[] = [
+  {
+    _id: '01',
+    question: 'Can I enroll in multiple courses at once?',
+    answer:
+      'Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.',
+    linkTitle: 'Learn About Enrolling in Multiple Courses',
+    link: '#',
+  },
+  {
+    _id: '02',
+    question: 'What kind of support can I expect from instructors?',
+    answer:
+      'You can expect prompt responses to your queries, detailed feedback on assignments, and dedicated support through the course discussion forums.',
+    linkTitle: 'Explore Instructor Support Options',
+    link: '#',
+  },
+  {
+    _id: '03',
+    question:
+      'Are the courses self-paced or do they have specific start and end dates?',
+    answer:
+      'Our courses are primarily self-paced, but some may have specific start and end dates for a more structured learning experience.',
+    linkTitle: 'Understand Course Scheduling',
+    link: '#',
+  },
+  {
+    _id: '04',
+    question: 'Are there any prerequisites for the courses?',
+    answer:
+      'Most courses are beginner-friendly, but some advanced courses may require prior knowledge or skills. Prerequisites are clearly mentioned in the course description.',
+    linkTitle: 'Check Course Prerequisites',
+    link: '#',
+  },
+  {
+    _id: '05',
+    question: 'Can I download the course materials for offline access?',
+    answer:
+      'Yes, many courses allow you to download materials such as videos, slides, and PDFs for offline learning. Check the course details for specific availability.',
+    linkTitle: 'Download Course Materials Offline',
+    link: '#',
+  },
+];
 
 export const Lorem =
   'Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.';
-
-/*
- * Типы фич
- * limited / unlimited как например доступ к какому-либо ресурсу
- *
- */

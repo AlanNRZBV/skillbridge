@@ -3,6 +3,7 @@ import Section from '../components/Section.tsx';
 import {
   BENEFITS_CARDS,
   COURSES_CARDS,
+  FAQ,
   Lorem,
   TESTIMONIALS_CARDS,
 } from '../constants';
@@ -12,6 +13,10 @@ import TestimonialCard from '../components/Cards/TestimonialCard.tsx';
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import PricingCard from '../components/Cards/PricingCard.tsx';
+import FaqCard from '../components/Cards/FaqCard.tsx';
+
+const faqDescription =
+  'Still you have any questions? Contact our Team via support@skillbridge.com';
 
 const Home = () => {
   const [isMonthly, setIsMonthly] = useState<boolean>(true);
@@ -20,7 +25,7 @@ const Home = () => {
     setIsMonthly((prevState) => !prevState);
   };
   return (
-    <div className="h-full">
+    <div className="flex h-full flex-col gap-y-[3.125em] lg:gap-y-[6.25em] 2xl:gap-y-[9.375em]">
       <Hero />
       <Section title="benefits" description={Lorem} link="#">
         <div className="grid grid-cols-1 gap-[1.875em] sm:grid-cols-2 lg:grid-cols-3">
@@ -83,6 +88,25 @@ const Home = () => {
               perMonth={item.perMonth}
               perYear={item.perYear}
               features={item.features}
+            />
+          ))}
+        </div>
+      </Section>
+      <Section
+        title="Frequently Asked Questions"
+        description={faqDescription}
+        link="#"
+        isFaq
+      >
+        <div className="flex flex-col gap-y-5 xl:col-span-2 2xl:gap-y-[1.875em]">
+          {FAQ.map((item) => (
+            <FaqCard
+              key={item._id}
+              _id={item._id}
+              question={item.question}
+              answer={item.answer}
+              linkTitle={item.linkTitle}
+              link={item.link}
             />
           ))}
         </div>

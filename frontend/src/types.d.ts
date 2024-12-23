@@ -30,3 +30,11 @@ declare interface IPricingPlan {
   createdAt?: string;
   updatedAt?: string;
 }
+
+declare interface IQuestion {
+  _id: string;
+  question: string;
+  answer: string;
+  linkTitle: string;
+  link: string;
+}
