@@ -16,6 +16,7 @@ export const icons = {
   adobe: `${iconUrl}/icon-adobe.svg`,
   notion: `${iconUrl}/icon-notion.svg`,
   netflix: `${iconUrl}/icon-netflix.svg`,
+  googleSignUp: `${iconUrl}/icon-google-sign-up.svg`,
 };
 
 export const images = {
