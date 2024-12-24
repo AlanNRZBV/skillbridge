@@ -1,3 +1,7 @@
+declare interface ApiResponse {
+  message: string;
+}
+
 declare interface ICourse {
   _id: string;
   img: string;
@@ -30,6 +34,9 @@ declare interface IPricingPlan {
   createdAt?: string;
   updatedAt?: string;
 }
+declare interface IPricingPlanResponse extends ApiResponse {
+  plans: IPricingPlan[];
+}
 
 declare interface IQuestion {
   _id: string;
@@ -37,4 +44,12 @@ declare interface IQuestion {
   answer: string;
   linkTitle: string;
   link: string;
+}
+
+declare interface IUser {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: 'user' | 'admin';
 }

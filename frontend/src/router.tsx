@@ -9,7 +9,6 @@ import Courses from './pages/Courses.tsx';
 import Pricing from './pages/Pricing.tsx';
 import Contacts from './pages/Contacts.tsx';
 import Course from './components/Course.tsx';
-import { getPricing } from './utils/loaders.ts';
 import Checkout from './pages/Checkout.tsx';
 
 const router = createBrowserRouter(
@@ -22,8 +21,6 @@ const router = createBrowserRouter(
         {
           path: '/',
           element: <Home />,
-          hydrateFallbackElement: <div>some shit are loading rn</div>,
-          loader: getPricing,
         },
         {
           path: '/sign-up',

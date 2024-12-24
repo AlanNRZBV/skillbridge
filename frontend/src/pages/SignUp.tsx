@@ -1,7 +1,7 @@
 import CustomInput from '../components/UI/CustomInput.tsx';
 import { ArrowUpRightIcon, CheckIcon } from '@heroicons/react/16/solid';
 import { ChangeEvent, useState } from 'react';
-import { icons } from '../constants';
+import { icons, Lorem } from '../constants';
 import { NavLink } from 'react-router-dom';
 
 const SignUp = () => {
@@ -106,8 +106,14 @@ const SignUp = () => {
           </NavLink>
         </div>
       </div>
-      <div>
-        <h3>students testimonials</h3>
+      <div className="flex flex-col gap-y-10">
+        <div className="flex flex-col gap-y-1">
+          <h3 className="text-2xl font-medium capitalize text-dark-15">
+            students testimonials
+          </h3>
+          <span className="text-[.875rem] text-dark-35">{Lorem}</span>
+        </div>
+        <div className="flex"></div>
       </div>
     </section>
   );

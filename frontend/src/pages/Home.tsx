@@ -10,20 +10,46 @@ import {
 import BenefitCard from '../components/Cards/BenefitCard.tsx';
 import CourseCard from '../components/Cards/CourseCard.tsx';
 import TestimonialCard from '../components/Cards/TestimonialCard.tsx';
-import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
 import PricingCard from '../components/Cards/PricingCard.tsx';
 import FaqCard from '../components/Cards/FaqCard.tsx';
+import { useGetPricingPlanQuery } from '../features/api/apiSlice.ts';
 
 const faqDescription =
   'Still you have any questions? Contact our Team via support@skillbridge.com';
 
 const Home = () => {
   const [isMonthly, setIsMonthly] = useState<boolean>(true);
-  const { plans } = useLoaderData();
+
+  const { data, isLoading, isSuccess, isError, error } =
+    useGetPricingPlanQuery();
+
   const pricingPlanChange = () => {
     setIsMonthly((prevState) => !prevState);
   };
+
+  let plansContent: React.ReactNode;
+
+  if (isLoading) {
+    plansContent = <div>some shit is loading right now</div>;
+  } else if (isSuccess) {
+    const { plans } = data;
+    plansContent = plans.map((item: IPricingPlan) => (
+      <PricingCard
+        key={item._id}
+        isMonthly={isMonthly}
+        _id={item._id}
+        type={item.type}
+        name={item.name}
+        perMonth={item.perMonth}
+        perYear={item.perYear}
+        features={item.features}
+      />
+    ));
+  } else if (isError) {
+    plansContent = <div>here we ago again {error?.toString()}</div>;
+  }
+
   return (
     <div className="flex h-full flex-col gap-y-[3.125em] lg:gap-y-[6.25em] 2xl:gap-y-[9.375em]">
       <Hero />
@@ -78,18 +104,7 @@ const Home = () => {
         onClick={pricingPlanChange}
       >
         <div className="flex flex-col gap-y-[30px] rounded-xl bg-white p-5 xl:flex-row xl:gap-x-[30px] xl:p-[3.125em] 2xl:p-20">
-          {plans.map((item: IPricingPlan) => (
-            <PricingCard
-              key={item._id}
-              isMonthly={isMonthly}
-              _id={item._id}
-              type={item.type}
-              name={item.name}
-              perMonth={item.perMonth}
-              perYear={item.perYear}
-              features={item.features}
-            />
-          ))}
+          {plansContent}
         </div>
       </Section>
       <Section
