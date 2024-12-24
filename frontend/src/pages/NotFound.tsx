@@ -1,9 +1,8 @@
-
 const NotFound = () => {
   return (
-      <div>
-        not found
-      </div>
+    <div className="container mx-auto">
+      <h1>Not found page. go back ASAP!</h1>
+    </div>
   );
 };
 
